@@ -13,6 +13,7 @@ executable benchmark
     ghc-options:        -Wall -O2 -rtsopts
 
     c-sources:          ../fast_strstr.c
+                        ../wordlen_strstr.c
                         algorithms/naive_strstr.c
                         algorithms/volnitsky_strstr.c
     include-dirs:       ../

@@ -20,6 +20,7 @@ type StrStrFun = CString -> CString -> IO CString
 
 foreign import ccall unsafe "strstr"           strstr           :: StrStrFun
 foreign import ccall unsafe "fast_strstr"      fast_strstr      :: StrStrFun
+foreign import ccall unsafe "wordlen_strstr"   wordlen_strstr   :: StrStrFun
 foreign import ccall unsafe "naive_strstr"     naive_strstr     :: StrStrFun
 foreign import ccall unsafe "volnitsky_strstr" volnitsky_strstr :: StrStrFun
 
@@ -39,6 +40,7 @@ main = do
         bgroup (show nChars) [
               testFun ws content strstr           "strstr()"
             , testFun ws content fast_strstr      "fast_strstr()"
+            , testFun ws content wordlen_strstr   "wordlen_strstr()"
             , testFun ws content naive_strstr     "naive strstr()"
             , testFun ws content volnitsky_strstr "Volnitsky's strstr()"
             ]
